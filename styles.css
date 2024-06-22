@@ -1,3 +1,20 @@
 h2{
     color:green;
 }
+
+div {
+    padding :30px;
+    margin: 30px;
+    border: 3px solid black;
+}
+
+#centerpiece{
+    display: flex;
+}
+.team {
+    flex:1
+}
+.teamblock {
+
+    flex:1
+}
