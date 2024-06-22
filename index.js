@@ -11,17 +11,40 @@ const imgTwo = document.getElementById('imgtwo');
 const teamOneScore = document.getElementById('teamonescore');
 const teamTwoScore = document.getElementById('teamtwoscore');
 const winMessage = document.getElementById('winmessage');
+const defaultOption = document.getElementById('allbreeds');
+const breedSelector = document.getElementById('breedselector');
 let teamOneCounter =0;
 let teamTwoCounter =0;
 
 
 //getting the url with saync function
 async function randomImage(space) {
-    const response = await fetch("https://dog.ceo/api/breeds/image/random");
+    // if(breedSelector.value =="breeds"){
+    const response = await fetch(`https://dog.ceo/api/breeds/image/random`);
     const jsonData = await response.json()
     let url = jsonData.message
+    // console.log(breedSelector.value)
     space.setAttribute('src', url);
+    // } else {
+    // }
+    //I was trying to set up a statement where it would pull the generic random if all breed were selected, and specific breeds if a specific one was selected. 
 }
+
+// async function initialLoad() {
+//     const response = await fetch("https://dog.ceo/api/breeds/list/all");
+//     const jsonData = await response.json();
+//     const breedId = jsonData.message;
+//     console.log(breedId)
+//     for(breed in breedId){
+//     console.log(breed)
+//     const option = document.createElement('option');
+//     option.setAttribute('value', breed);
+//     option.textContent= `${breed}`
+//     breedSelector.appendChild(option);
+//     }
+// }
+// initialLoad();
+//I could get the dropdown to load in different breeds, but I could not get it to pull an image of that specific breed
 
 randomImage(imgOne);
 randomImage(imgTwo);
