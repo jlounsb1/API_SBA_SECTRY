@@ -15,7 +15,7 @@ const defaultOption = document.getElementById('allbreeds');
 const breedSelector = document.getElementById('breedselector');
 const imgsOfBreeds = document.querySelector('#imgsofbreeds');
 const breedBtn = document.getElementById('breedbtn');
-const breedImgClass = document.querySelectorAll('#breedimg')
+
 let teamOneCounter =0;
 let teamTwoCounter =0;
 
@@ -74,6 +74,13 @@ async function breedList(){
 
 function handleClickThree() {
     breedList();
+    const breedImgClass = document.querySelectorAll('.breedimg')
+    if(breedImgClass.length >1) {
+        for(let pic of breedImgClass){
+            pic.remove();
+        }
+    }
+    console.log(breedImgClass)
 }
 
 
