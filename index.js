@@ -17,10 +17,14 @@ const imgsOfBreeds = document.querySelector('#imgsofbreeds');
 const breedBtn = document.getElementById('breedbtn');
 const breedSection = document.getElementById('breedSection')
 const toBreedBtn = document.getElementById('totopbtn');
+const teamOneWins = document.getElementById('teamonewins');
+const teamTwoWins= document.getElementById('teamtwowins');
 
 
 let teamOneCounter =0;
 let teamTwoCounter =0;
+let teamOneWinCounter = 0;
+let teamTwoWinCounter = 0;
 
 const API_KEY = 'live_LehPqhYmFjuCSEDrG4dz6sS7P8WRHwTV4gCi6CC29wFrjFe9uM2obpap4dyvmRng';
 
@@ -101,6 +105,8 @@ function handleClickOne() {
         teamTwoCounter=0;
         teamOneScore.textContent=`${teamOneCounter}`;
         teamTwoScore.textContent=`${teamTwoCounter}`;
+        teamOneWinCounter=teamOneWinCounter+1;
+        teamOneWins.textContent = `${teamOneWinCounter}`
     }
 
 }
@@ -117,6 +123,8 @@ function handleClickTwo() {
         teamTwoCounter=0;
         teamOneScore.textContent=`${teamOneCounter}`;
         teamTwoScore.textContent=`${teamTwoCounter}`;
+        teamTwoWinCounter=teamTwoWinCounter+1;
+        teamTwoWins.textContent = `${teamTwoWinCounter}`
     }
 }
 
