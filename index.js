@@ -84,6 +84,7 @@ function handleClickOne() {
     teamOneCounter = teamOneCounter+1;
     teamOneScore.textContent=`${teamOneCounter}`;
     if(teamOneCounter>=10) {
+        alert('Team One Wins! Please play again!')
         winMessage.textContent = `Team One Wins! Try playing again!`
         teamOneCounter=0;
         teamTwoCounter=0;
@@ -99,6 +100,7 @@ function handleClickTwo() {
     teamTwoCounter = teamTwoCounter+1;
     teamTwoScore.textContent=`${teamTwoCounter}`;
     if(teamTwoCounter>=10) {
+        alert('Team Two Wins! Please play again!')
         winMessage.textContent = `Team Two Wins! Try playing again!`
         teamOneCounter=0;
         teamTwoCounter=0;
