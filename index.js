@@ -13,8 +13,9 @@ const teamTwoScore = document.getElementById('teamtwoscore');
 const winMessage = document.getElementById('winmessage');
 const defaultOption = document.getElementById('allbreeds');
 const breedSelector = document.getElementById('breedselector');
-const imgsOfBreeds = document.getElementById('imgsofbreeds');
+const imgsOfBreeds = document.querySelector('#imgsofbreeds');
 const breedBtn = document.getElementById('breedbtn');
+const breedImgClass = document.querySelectorAll('#breedimg')
 let teamOneCounter =0;
 let teamTwoCounter =0;
 
@@ -41,9 +42,7 @@ async function breedSelectorFunc() {
     const response = await fetch("https://dog.ceo/api/breeds/list/all");
     const jsonData = await response.json();
     const breedName = jsonData.message;
-    console.log(breedName)
     for(breed in breedName){
-    console.log(breed)
     const option = document.createElement('option');
     option.setAttribute('value', breed);
     option.textContent= `${breed}`
@@ -59,25 +58,22 @@ async function breedList(){
     for(let i=0;i<url.length; i++){
         if(breedSelector.value == 'none'){
             continue
-        }
+            }
         const img = document.createElement('img');
         img.setAttribute('src', url[i]);
         img.setAttribute('id', breedSelector.value);
-        imgsOfBreeds.appendChild(img);
+        img.setAttribute('class', 'breedimg')
+        imgsOfBreeds.prepend(img);
         imgsOfBreeds.style.display = 'flex'
         imgsOfBreeds.style.flexDirection='column'
         imgsOfBreeds.style.justifyContent='center'
         imgsOfBreeds.style.alignItems='center'
-        
     }
-    //will have to adjust the section in url to breed type to a literal variable
-    //this returns an array I can loop through;
-    }
+}
+
+
 function handleClickThree() {
-    
     breedList();
-    
-    
 }
 
 
