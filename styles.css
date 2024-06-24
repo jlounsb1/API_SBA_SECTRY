@@ -3,6 +3,9 @@ body {
     background-color:#264653;
     color:whitesmoke;
 }
+h1{
+    margin:5px;
+}
 
 div {
     padding :10px;
@@ -29,13 +32,13 @@ div {
 }
 
 #teamtwostats, #teamonestats{
-flex:1;
+width:25%;
 background-color:#E76F51;
 
 }
 
 img{
-    width:50%;
+    width:75%;
     border-radius: 10px;
     border:2px solid whitesmoke;
 
