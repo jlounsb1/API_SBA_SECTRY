@@ -75,7 +75,7 @@ async function breedList(){
 function handleClickThree() {
     breedList();
     const breedImgClass = document.querySelectorAll('.breedimg')
-    if(breedImgClass.length >1) {
+    if(breedImgClass.length >0) {
         for(let pic of breedImgClass){
             pic.remove();
         }
