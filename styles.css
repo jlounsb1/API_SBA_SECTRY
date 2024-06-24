@@ -24,7 +24,7 @@ div {
 .teamblock {
     flex:1
 }
-#header, #bodyinfo, #breedselection {
+#header, #bodyinfo, #breedselection, #breedSection, #footer{
     background-color:#F4A261;
 }
 
@@ -53,4 +53,10 @@ button {
 button:hover{
     opacity:70%;
     cursor:pointer;
+}
+
+select {
+    padding:10px;
+    border-radius: 20px;
+    font-size: 1em;
 }

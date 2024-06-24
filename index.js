@@ -14,6 +14,7 @@ const winMessage = document.getElementById('winmessage');
 const defaultOption = document.getElementById('allbreeds');
 const breedSelector = document.getElementById('breedselector');
 const imgsOfBreeds = document.getElementById('imgsofbreeds');
+const breedBtn = document.getElementById('breedbtn');
 let teamOneCounter =0;
 let teamTwoCounter =0;
 
@@ -21,12 +22,12 @@ const API_KEY = 'live_LehPqhYmFjuCSEDrG4dz6sS7P8WRHwTV4gCi6CC29wFrjFe9uM2obpap4d
 
 randomImage(imgOne);
 randomImage(imgTwo);
-breedList();
+// breedList();
 breedSelectorFunc()
 
 btnOne.addEventListener('click', handleClickOne);
 btnTwo.addEventListener('click', handleClickTwo);
-
+breedBtn.addEventListener('click', handleClickThree);
 
 //getting the url with saync function
 async function randomImage(space) {
@@ -48,16 +49,36 @@ async function breedSelectorFunc() {
     option.textContent= `${breed}`
     breedSelector.appendChild(option);
     }
+    breedList();
 }
 
 async function breedList(){
-    const response = await fetch('https://dog.ceo/api/breed/husky/images/random/5')
-    //this returns an array I can loop through;
+    const response = await fetch(`https://dog.ceo/api/breed/${breedSelector.value}/images/random/5`)
     const jsonData = await response.json();
     const url = jsonData.message;
-    console.log(url);
+    for(let i=0;i<url.length; i++){
+        if(breedSelector.value == 'none'){
+            continue
+        }
+        const img = document.createElement('img');
+        img.setAttribute('src', url[i]);
+        img.setAttribute('id', breedSelector.value);
+        imgsOfBreeds.appendChild(img);
+        imgsOfBreeds.style.display = 'flex'
+        imgsOfBreeds.style.flexDirection='column'
+        imgsOfBreeds.style.justifyContent='center'
+        imgsOfBreeds.style.alignItems='center'
+        
     }
-
+    //will have to adjust the section in url to breed type to a literal variable
+    //this returns an array I can loop through;
+    }
+function handleClickThree() {
+    
+    breedList();
+    
+    
+}
 
 
 function handleClickOne() {
