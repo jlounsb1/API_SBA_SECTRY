@@ -15,6 +15,9 @@ const defaultOption = document.getElementById('allbreeds');
 const breedSelector = document.getElementById('breedselector');
 const imgsOfBreeds = document.querySelector('#imgsofbreeds');
 const breedBtn = document.getElementById('breedbtn');
+const breedSection = document.getElementById('breedSection')
+const toBreedBtn = document.getElementById('totopbtn');
+
 
 let teamOneCounter =0;
 let teamTwoCounter =0;
@@ -23,12 +26,12 @@ const API_KEY = 'live_LehPqhYmFjuCSEDrG4dz6sS7P8WRHwTV4gCi6CC29wFrjFe9uM2obpap4d
 
 randomImage(imgOne);
 randomImage(imgTwo);
-// breedList();
-breedSelectorFunc()
+breedSelectorFunc();
 
 btnOne.addEventListener('click', handleClickOne);
 btnTwo.addEventListener('click', handleClickTwo);
 breedBtn.addEventListener('click', handleClickThree);
+toBreedBtn.addEventListener('click', toBreed);
 
 //getting the url with saync function
 async function randomImage(space) {
@@ -57,6 +60,7 @@ async function breedList(){
     const url = jsonData.message;
     for(let i=0;i<url.length; i++){
         if(breedSelector.value == 'none'){
+            toBreedBtn.setAttribute('class', 'hidden')
             continue
             }
         const img = document.createElement('img');
@@ -74,13 +78,13 @@ async function breedList(){
 
 function handleClickThree() {
     breedList();
+    toBreedBtn.classList.remove('hidden');
     const breedImgClass = document.querySelectorAll('.breedimg')
     if(breedImgClass.length >0) {
         for(let pic of breedImgClass){
             pic.remove();
         }
     }
-    console.log(breedImgClass)
 }
 
 
@@ -115,4 +119,13 @@ function handleClickTwo() {
         teamTwoScore.textContent=`${teamTwoCounter}`;
     }
 }
+
+function toBreed() {
+    breedSection.scrollIntoView({behavior: 'smooth'});
+    
+    //jump to top added, used code from previous SBA for walk tracker
+    //found the scrollIntoView method to do this easily on stack Overflow, wanted to cite my source.
+    //https://stackoverflow.com/questions/3569329/javascript-to-make-the-page-jump-to-a-specific-location
+   }
+
 

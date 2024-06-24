@@ -61,3 +61,7 @@ select {
     font-size: 1em;
     background-color: whitesmoke;
 }
+
+.hidden {
+    display:none;
+}
